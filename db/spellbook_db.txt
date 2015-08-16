@@ -24,13 +24,3 @@
 89,10,6192       // Storm Gust
 90,8,6201        // Earth Spike
 91,9,6200        // Heaven's Drive
-
-//================
-// Warlock
-//================
-2210,8,6205      // Drain Life
-2211,12,6204     // Crimson Rock
-2213,22,6195     // Comet
-2214,12,6203     // Chain Lightning
-2216,12,6202     // Earth Strain
-2217,22,6196     // Tetra Vortex

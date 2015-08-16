@@ -200,9 +200,6 @@
 7035,1752,3000
 // Fang of Garm --> 300 Crystal Arrows
 7036,1754,300
-
-//New Ingredients
-
 // Ice Cubic --> 100 Crystal Arrows
 7066,1754,100
 // Stone Fragment --> 50 Stone Arrows, 30 Stun Arrows

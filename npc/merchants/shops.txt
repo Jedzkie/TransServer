@@ -345,43 +345,6 @@ OnInit:
 
 
 //=======================================================
-// Brasilis
-//=======================================================
-brasilis,252,257,3	trader	Tool Dealer#bra	4_F_BRZ_WOMAN,{
-OnInit:
-	sellitem Center_Potion;
-	sellitem Awakening_Potion;
-	sellitem Wing_Of_Fly;
-	sellitem Wing_Of_Butterfly;
-	sellitem Spectacles;
-	sellitem Booby_Trap;
-	sellitem Leaf_Of_Yggdrasil;
-}
-
-brasilis,244,243,3	trader	Weapon Dealer#bra	4_M_BRZ_MAN2,{
-OnInit:
-	sellitem Pike;
-	sellitem Partizan;
-	sellitem Hammer;
-	sellitem Chain;
-	sellitem Coward;
-}
-
-brasilis,201,309,3	trader	Pet Groomer#bra	4_M_BRZ_MAN1,{
-OnInit:
-	sellitem Pet_Food;
-	sellitem Pet_Incubator;
-}
-
-brasilis,221,128,3	trader	Fruit Gardener#bra	4_M_BRZ_MAN2,{
-OnInit:
-	sellitem Coconut;
-	sellitem Banana;
-	sellitem Asai_Fruit;
-}
-
-
-//=======================================================
 // Comodo
 //=======================================================
 cmd_in01,117,165,4	trader	Armor Dealer#cmd	4W_F_01,{

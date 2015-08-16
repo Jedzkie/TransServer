@@ -240,7 +240,7 @@ ve_fild05	mapflag	nightenabled
 ve_fild06	mapflag	nightenabled
 ve_fild07	mapflag	nightenabled
 
-//Episode 12 ====================
+// Episode 12 ====================
 poring_c01	mapflag	nightenabled
 poring_c02	mapflag	nightenabled
 nameless_i	mapflag	nightenabled
@@ -276,7 +276,7 @@ bat_c01	mapflag	nightenabled
 bat_c02	mapflag	nightenabled
 bat_c03	mapflag	nightenabled
 
-//Endless Tower ==================
+// Endless Tower ==================
 e_tower	mapflag	nightenabled
 
 // Episode 13 ====================
@@ -295,26 +295,3 @@ manuk	mapflag	nightenabled
 man_fild02	mapflag	nightenabled
 splendide	mapflag	nightenabled
 spl_fild01	mapflag	nightenabled
-brasilis	mapflag	nightenabled
-bra_fild01	mapflag	nightenabled
-dicastes01	mapflag	nightenabled
-dicastes02	mapflag	nightenabled
-dic_fild01	mapflag	nightenabled
-dic_fild02	mapflag	nightenabled
-
-// Episode 14 ====================
-bif_fild01	mapflag	nightenabled
-bif_fild02	mapflag	nightenabled
-dewata	mapflag	nightenabled
-dew_fild01	mapflag	nightenabled
-dew_dun02	mapflag	nightenabled
-malangdo	mapflag	nightenabled
-malaya	mapflag	nightenabled
-ma_fild01	mapflag	nightenabled
-ma_fild02	mapflag	nightenabled
-ma_scene01	mapflag	nightenabled
-eclage	mapflag	nightenabled
-ecl_fild01	mapflag	nightenabled
-ecl_hub01	mapflag	nightenabled
-
-//evt_zombie	mapflag	nightenabled
