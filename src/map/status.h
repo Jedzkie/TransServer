@@ -1375,7 +1375,7 @@ enum si_type {
 	SI_PC_IZ_DUN05                           = 619,
 	SI_CRUSHSTRIKE                           = 620,
 	SI_MONSTER_TRANSFORM                     = 621,
-	SI_SIT                                   = 622,
+	//SI_SIT                                   = 622,
 	SI_ONAIR                                 = 623,
 	SI_MTF_ASPD                              = 624,
 	SI_MTF_RANGEATK                          = 625,
@@ -1449,7 +1449,7 @@ enum si_type {
 	SI_GVG_CURSE                             = 692,
 	SI_GVG_SILENCE                           = 693,
 	SI_GVG_BLIND                             = 694,
-	SI_CLIENT_ONLY_EQUIP_ARROW               = 695,
+	//SI_CLIENT_ONLY_EQUIP_ARROW               = 695,
 	SI_CLAN_INFO                             = 696,
 	SI_JP_EVENT01                            = 697,
 	SI_JP_EVENT02                            = 698,
@@ -1565,6 +1565,9 @@ enum si_type {
 	//SI_MTF_RANGEATK2                         = 818,
 	//SI_MTF_ASPD2                             = 819,
 	//SI_MTF_MATK2                             = 820,
+	
+	SI_EQUIP_ARROW_ICON                        = 1001,
+	SI_SIT_ICON                                = 1002,
 
 	SI_MAX,
 };

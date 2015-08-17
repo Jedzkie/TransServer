@@ -3174,20 +3174,18 @@ void clif_initialstatus(struct map_session_data *sd) {
 
 /// Marks an ammunition item in inventory as equipped (ZC_EQUIP_ARROW).
 /// 013c <index>.W
-void clif_arrowequip(struct map_session_data *sd,int val)
+void clif_arrowequip(struct map_session_data *sd, int val)
 {
 	int fd;
 
 	nullpo_retv(sd);
-
-#if PACKETVER >= 20121128
-	clif->status_change(&sd->bl, SI_CLIENT_ONLY_EQUIP_ARROW, 1, INVALID_TIMER, 0, 0, 0);
-#endif
-	fd=sd->fd;
+	
+	clif->status_change(&sd->bl, SI_EQUIP_ARROW_ICON, 1, INVALID_TIMER, 0, 0, 0);
+	fd = sd->fd;
 	WFIFOHEAD(fd, packet_len(0x013c));
-	WFIFOW(fd,0)=0x013c;
-	WFIFOW(fd,2)=val+2; //Item ID of the arrow
-	WFIFOSET(fd,packet_len(0x013c));
+	WFIFOW(fd, 0) = 0x013c;
+	WFIFOW(fd, 2) = val + 2; //Item ID of the arrow
+	WFIFOSET(fd, packet_len(0x013c));
 }
 
 

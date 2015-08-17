@@ -15308,23 +15308,23 @@ int skill_sit (struct map_session_data *sd, int type)
 	nullpo_ret(sd);
 
 
-	if((lv = pc->checkskill(sd,RG_GANGSTER)) > 0) {
+	if((lv = pc->checkskill(sd, RG_GANGSTER)) > 0) {
 		flag|=1;
 		range = skill->get_splash(RG_GANGSTER, lv);
 	}
-	if((lv = pc->checkskill(sd,TK_HPTIME)) > 0) {
+	if((lv = pc->checkskill(sd, TK_HPTIME)) > 0) {
 		flag|=2;
 		range = skill->get_splash(TK_HPTIME, lv);
 	}
-	else if ((lv = pc->checkskill(sd,TK_SPTIME)) > 0) {
+	else if ((lv = pc->checkskill(sd, TK_SPTIME)) > 0) {
 		flag|=2;
 		range = skill->get_splash(TK_SPTIME, lv);
 	}
 
 	if( type ) {
-		clif->sc_load(&sd->bl,sd->bl.id,SELF,SI_SIT,0,0,0);
+		clif->sc_load(&sd->bl, sd->bl.id, SELF, SI_SIT_ICON,0,0,0);
 	} else {
-		clif->sc_end(&sd->bl,sd->bl.id,SELF,SI_SIT);
+		clif->sc_end(&sd->bl, sd->bl.id, SELF, SI_SIT_ICON);
 	}
 
 	if (!flag) return 0;

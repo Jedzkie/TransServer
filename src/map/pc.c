@@ -7589,7 +7589,7 @@ int pc_dead(struct map_session_data *sd,struct block_list *src) {
 
 	/* e.g. not killed through pc->damage */
 	if( pc_issit(sd) ) {
-		clif->sc_end(&sd->bl,sd->bl.id,SELF,SI_SIT);
+		clif->sc_end(&sd->bl, sd->bl.id, SELF, SI_SIT_ICON);
 	}
 
 	pc_setdead(sd);
@@ -9530,21 +9530,21 @@ void pc_equipitem_pos(struct map_session_data *sd, struct item_data *id, int n, 
  *   0 = fail
  *   1 = success
  *------------------------------------------*/
-int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
+int pc_equipitem(struct map_session_data *sd, int n, int req_pos)
 {
-	int i,pos,flag=0,iflag;
+	int i, pos, flag = 0,iflag;
 	struct item_data *id;
 
 	nullpo_ret(sd);
 
 	if( n < 0 || n >= MAX_INVENTORY ) {
-		clif->equipitemack(sd,0,0,EIA_FAIL);
+		clif->equipitemack(sd, 0, 0, EIA_FAIL);
 		return 0;
 	}
 
-	if( DIFF_TICK(sd->canequip_tick,timer->gettick()) > 0 )
+	if( DIFF_TICK(sd->canequip_tick, timer->gettick()) > 0 )
 	{
-		clif->equipitemack(sd,n,0,EIA_FAIL);
+		clif->equipitemack(sd, n, 0, EIA_FAIL);
 		return 0;
 	}
 
@@ -9552,23 +9552,23 @@ int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
 	pos = pc->equippoint(sd,n); //With a few exceptions, item should go in all specified slots.
 
 	if(battle_config.battle_log)
-		ShowInfo("equip %d(%d) %x:%x\n",sd->status.inventory[n].nameid,n,id?id->equip:0,req_pos);
-	if(!pc->isequip(sd,n) || !(pos&req_pos) || sd->status.inventory[n].equip != 0 || sd->status.inventory[n].attribute==1 ) { // [Valaris]
+		ShowInfo("equip %d(%d) %x:%x\n",sd->status.inventory[n].nameid,n,id?id->equip : 0, req_pos);
+	if(!pc->isequip(sd, n) || !(pos&req_pos) || sd->status.inventory[n].equip != 0 || sd->status.inventory[n].attribute == 1 ) { // [Valaris]
 		// FIXME: pc->isequip: equip level failure uses 2 instead of 0
-		clif->equipitemack(sd,n,0,EIA_FAIL); // fail
+		clif->equipitemack(sd, n, 0, EIA_FAIL); // fail
 		return 0;
 	}
 
 	if (sd->sc.data[SC_BERSERK] || sd->sc.data[SC_NO_SWITCH_EQUIP])
 	{
-		clif->equipitemack(sd,n,0,EIA_FAIL); // fail
+		clif->equipitemack(sd, n, 0, EIA_FAIL); // fail
 		return 0;
 	}
 
 	/* won't fail from this point onwards */
 	if( id->flag.bindonequip && !sd->status.inventory[n].bound ) {
 		sd->status.inventory[n].bound = (unsigned char)IBT_CHARACTER;
-		clif->notify_bounditem(sd,n);
+		clif->notify_bounditem(sd, n);
 	}
 	
 	if(pos == EQP_ACC) { //Accesories should only go in one of the two,
@@ -9598,7 +9598,7 @@ int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
 			flag = id->range != sd->inventory_data[i]->range;
 	}
 
-	for(i=0;i<EQI_MAX;i++) {
+	for(i = 0; i < EQI_MAX; i++) {
 		if(pos & pc->equip_pos[i]) {
 			if(sd->equip_index[i] >= 0) //Slot taken, remove item from there.
 				pc->unequipitem(sd, sd->equip_index[i], PCUNEQUIPITEM_FORCE);
@@ -9607,14 +9607,14 @@ int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
 		}
 	}
 
-	if(pos==EQP_AMMO){
-		clif->arrowequip(sd,n);
-		clif->arrow_fail(sd,3);
+	if(pos == EQP_AMMO){
+		clif->arrowequip(sd, n);
+		clif->arrow_fail(sd, 3);
 	}
 	else
-		clif->equipitemack(sd,n,pos,EIA_SUCCESS);
+		clif->equipitemack(sd, n, pos, EIA_SUCCESS);
 
-	sd->status.inventory[n].equip=pos;
+	sd->status.inventory[n].equip = pos;
 
 	pc->equipitem_pos(sd, id, n, pos);
 
@@ -9623,7 +9623,7 @@ int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
 
 	/* check for combos (MUST be before status_calc_pc) */
 	if( id->combos_count )
-		pc->checkcombo(sd,id);
+		pc->checkcombo(sd, id);
 	if(itemdb_isspecial(sd->status.inventory[n].card[0]))
 		; //No cards
 	else {
@@ -9633,7 +9633,7 @@ int pc_equipitem(struct map_session_data *sd,int n,int req_pos)
 				continue;
 			if ( ( data = itemdb->exists(sd->status.inventory[n].card[i]) ) != NULL ) {
 				if( data->combos_count )
-					pc->checkcombo(sd,data);
+					pc->checkcombo(sd, data);
 			}
 		}
 	}
@@ -9766,7 +9766,7 @@ int pc_unequipitem(struct map_session_data *sd,int n,int flag)
 		clif->unequipitemack(sd,n,0,UIA_FAIL);
 		return 0;
 	}
-	for(i=0;i<EQI_MAX;i++) {
+	for(i = 0; i < EQI_MAX; i++) {
 		if(sd->status.inventory[n].equip & pc->equip_pos[i])
 			sd->equip_index[i] = -1;
 	}
@@ -9785,11 +9785,15 @@ int pc_unequipitem(struct map_session_data *sd,int n,int flag)
 		status_change_end(&sd->bl, SC_BENEDICTIO, INVALID_TIMER);
 		status_change_end(&sd->bl, SC_ARMOR_RESIST, INVALID_TIMER);
 	}
+	
+	if(pos == EQP_AMMO){
+		clif->sc_end(&sd->bl, sd->bl.id, SELF, SI_EQUIP_ARROW_ICON);
+	}
 
 	if( sd->state.autobonus&pos )
 		sd->state.autobonus &= ~sd->status.inventory[n].equip; //Check for activated autobonus [Inkfish]
 
-	sd->status.inventory[n].equip=0;
+	sd->status.inventory[n].equip = 0;
 	iflag = sd->npc_item_flag;
 
 	/* check for combos (MUST be before status_calc_pc) */
@@ -10340,7 +10344,7 @@ void pc_setstand(struct map_session_data *sd) {
 	nullpo_retv(sd);
 
 	status_change_end(&sd->bl, SC_TENSIONRELAX, INVALID_TIMER);
-	clif->sc_end(&sd->bl,sd->bl.id,SELF,SI_SIT);
+	clif->sc_end(&sd->bl, sd->bl.id, SELF, SI_SIT_ICON);
 	//Reset sitting tick.
 	sd->ssregen.tick.hp = sd->ssregen.tick.sp = 0;
 	sd->state.dead_sit = sd->vd.dead_sit = 0;

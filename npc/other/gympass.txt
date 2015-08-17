@@ -73,7 +73,7 @@ payon,173,141,4	script	Ripped Cabus#GymPass	4_M_HUMAN_02,{
 				mes "to carry more stuff with you.";
 				mes "Let's see, we can increase";
 				mes "your item carrying capacity";
-				mes "^FF00000" + .@remain_carry + "^000000 more times if we continue";
+				mes "^FF0000" + .@remain_carry + "^000000 more times if we continue";
 				mes "training together like this.";
 				delitem 7776,1; //Max_Weight_Up_Scroll
 				gympassmemory = .@add_carry;
