@@ -44,6 +44,7 @@
 6@tower	mapflag	src4instance
 //============================================================
 alberta,214,77,6	script	Captain Janssen	4_M_SEAMAN,{
+	disable_items;
 	if (checkweight(1201,1) == 0) {
 		mes "^008800Wait here!!";
 		mes "You're carrying too much stuff. Why don't you put some of it away, and then come back.^000000";
@@ -142,7 +143,7 @@ alberta,214,77,6	script	Captain Janssen	4_M_SEAMAN,{
 		mes "[Captain Janssen]";
 		mes "Well, to travel the ocean again, we need to restock on goods. If you give me 10,000 Zeny, I'll take care of the rest.";
 		next;
-		switch(select("I'll come back later.:Let's go, now!")) {
+		switch(select("I'll come back later.:Let's go, now!:Exchange ^ff0000"+getitemname(6000)+"^000000")) {
 		case 1:
 			mes "["+.@name$+"]";
 			mes "I'm sorry, but I don't have that much money. I'll come back when I save enough.";
@@ -164,6 +165,36 @@ alberta,214,77,6	script	Captain Janssen	4_M_SEAMAN,{
 				warp "e_tower",70,114;
 				end;
 			}
+		case 3:
+			if(exchange_et_coin != 1){
+				mes "[Captain Janssen]";
+				mes "Sorry "+strcharinfo(0)+", you can't use this function unless you already entered Endless Tower up to 26th Floor.";
+				close;
+			}
+			mes "[Captain Janssen]";
+			mes "Please be remind that the exchange rate is 1 ^ff0000"+getitemname(6000)+"^000000 into 5 ^0000ff"+getitemname(3000)+"^000000.";
+			mes "Do you want to exchange now?";
+			next;
+			if(select("Sure.:Maybe later?") == 2){
+				mes "[Captain Janssen]";
+				mes "Okay... Come back again.";
+				close;
+			}
+			mes "[Captain Janssen]";
+			mes "How many ^ff0000"+getitemname(6000)+"^000000 do you want to exchange?";
+			next;
+			input .@j;
+			
+			if(countitem(6000) < .@j){
+				mes "[Captain Janssen]";
+				mes "You do not have enough ^ff0000"+getitemname(6000)+"^000000.";
+				close;
+			}
+			getitem 3000,.@j*5;
+			delitem 6000,.@j;
+			mes "[Captain Janssen]";
+			mes "Thank you.";
+			close;
 		}
 	} else {
 		mes "[Captain Janssen]";
@@ -1337,6 +1368,7 @@ OnEnable:
 
 OnTouch_:
 	getitem 6000,1; //Dark_Ashes
+	exchange_et_coin = 1;
 	warp instance_mapname("2@tower"),52,354;
 	end;
 

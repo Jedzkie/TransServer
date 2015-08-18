@@ -1770,23 +1770,23 @@ ACMD(go) {
 		int x, y;
 		int min_match; ///< Minimum string length to match
 	} data[] = {
-		{ MAP_PRONTERA,    156, 191, 3 }, //  0 = Prontera
-		{ MAP_MORROC,      156,  93, 4 }, //  1 = Morroc
-		{ MAP_GEFFEN,      119,  59, 3 }, //  2 = Geffen
-		{ MAP_PAYON,       162, 233, 3 }, //  3 = Payon
-		{ MAP_ALBERTA,     192, 147, 3 }, //  4 = Alberta
+		{ MAP_PRONTERA,    116,  72, 3 }, //  0 = Prontera
+		{ MAP_MORROC,      156,  46, 4 }, //  1 = Morroc
+		{ MAP_GEFFEN,      120,  39, 3 }, //  2 = Geffen
+		{ MAP_PAYON,       161,  58, 3 }, //  3 = Payon
+		{ MAP_ALBERTA,     117,  56, 3 }, //  4 = Alberta
 #ifdef RENEWAL
 		{ MAP_IZLUDE,      128, 146, 3 }, //  5 = Izlude (Renewal)
 #else
-		{ MAP_IZLUDE,      128, 114, 3 }, //  5 = Izlude
+		{ MAP_IZLUDE,       91, 105, 3 }, //  5 = Izlude
 #endif
 		{ MAP_ALDEBARAN,   140, 131, 3 }, //  6 = Aldebaran
 		{ MAP_LUTIE,       147, 134, 3 }, //  7 = Lutie
 		{ MAP_COMODO,      209, 143, 3 }, //  8 = Comodo
-		{ MAP_YUNO,        157,  51, 3 }, //  9 = Juno
+		{ MAP_YUNO,        158, 125, 3 }, //  9 = Juno
 		{ MAP_AMATSU,      198,  84, 3 }, // 10 = Amatsu
 		{ MAP_GONRYUN,     160, 120, 3 }, // 11 = Kunlun
-		{ MAP_UMBALA,       89, 157, 3 }, // 12 = Umbala
+		{ MAP_UMBALA,      100, 154, 3 }, // 12 = Umbala
 		{ MAP_NIFLHEIM,     21, 153, 3 }, // 13 = Niflheim
 		{ MAP_LOUYANG,     217,  40, 3 }, // 14 = Luoyang
 		{ MAP_NOVICE,       53, 111, 3 }, // 15 = Training Grounds
@@ -1797,8 +1797,8 @@ ACMD(go) {
 		{ MAP_LIGHTHALZEN, 158,  92, 3 }, // 20 = Lighthalzen
 		{ MAP_EINBECH,      70,  95, 5 }, // 21 = Einbech
 		{ MAP_HUGEL,        96, 145, 3 }, // 22 = Hugel
-		{ MAP_RACHEL,      130, 110, 3 }, // 23 = Rachel
-		{ MAP_VEINS,       216, 123, 3 }, // 24 = Veins
+		{ MAP_RACHEL,      115, 125, 3 }, // 23 = Rachel
+		{ MAP_VEINS,       205, 101, 3 }, // 24 = Veins
 		{ MAP_MOSCOVIA,    223, 184, 3 }, // 25 = Moscovia
 		{ MAP_MIDCAMP,     180, 240, 3 }, // 26 = Midgard Camp
 		{ MAP_MANUK,       282, 138, 3 }, // 27 = Manuk
