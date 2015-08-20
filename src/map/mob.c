@@ -2395,7 +2395,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type) {
 			 * so while we discuss, for a small period of time, the list is hardcoded (yes officially only those 2 use it,
 			 * thus why we're unsure on how to best place the setting) */
 			/* temp, will not be hardcoded for long thudu. */
-			if( it->nameid == 7782 || it->nameid == 7783 || it->nameid >= 4001 && it->nameid <= 4453 || it->nameid == 2728 || it->nameid == 2729 ) /* for when not hardcoded: add a check on mvp bonus drop as well */
+			if( it->nameid == 7782 || it->nameid == 7783 || it->nameid >= 4001 && it->nameid <= 4453 || it->nameid == 2537 || it->nameid == 2536 || it->nameid == 2129 || it->nameid == 2130 || it->nameid == 1541 || it->nameid == 1182 || it->nameid == 2728 || it->nameid == 2729 ) /* for when not hardcoded: add a check on mvp bonus drop as well */
 				clif->item_drop_announce(mvp_sd, it->nameid, md->name);
 			
 			// Announce first, or else ditem will be freed. [Lance]
