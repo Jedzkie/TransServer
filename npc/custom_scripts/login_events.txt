@@ -1,0 +1,11 @@
+-	script	Nov_Quest	-1,{
+OnPCLoginEvent:
+	if(intro_nov_q == 0){
+		setquest 20000;
+		login_nov_q = 1;
+		end;
+	}
+	else if(intro_nov_q == 1 || login_nov_q == 1){
+		end;
+	}
+}

@@ -1,0 +1,59 @@
+// Receptionist
+ac_cl_area,53,156,5	script	School Girl#nov_aca	JP_AIRI,{
+	cutin "jpn_airi01",2;
+	if(intro_nov_q == 0){
+		mes "[ ^ffa500Airi^000000 ]";
+		mes "Hello!";
+		mes "It seems you are new here...";
+		mes "May I know you name?";
+		next;
+		input .@charname$;
+		if (.@charname$ != strcharinfo(0)) {
+			cutin "jpn_airi05",2;
+			mes "[ ^ffa500Airi^000000 ]";
+			mes "Sorry, I think you're lying on me...";
+			close2;
+			cutin "",255;
+			emotion e_shy;
+			end;
+		}
+	}
+	cutin "jpn_airi02",2;
+	intro_nov_q = 1;
+	completequest 20000;
+	mes "[ ^ffa500Airi^000000 ]";
+	mes "Nice name!";
+	mes "I'm Airi! I'm the one in charge to guide the new comers here in our academy.";
+	mes "Anything I can do for you?";
+	next;
+	switch(select("...:...:...")){
+	case 1:
+		close2;
+		cutin "",255;
+		end;
+	case 2:
+		close2;
+		cutin "",255;
+		end;
+	case 3:
+		close2;
+		cutin "",255;
+		end;
+	}
+	
+OnInit:
+	questinfo 20001, QTYPE_QUEST, 0, Job_Novice;
+	end;
+}
+
+// Warps
+ac_cl_area,30,125,0	warp	nov_aca02	1,1,ac_cl_area,67,14
+ac_cl_area,71,14,0	warp	nov_aca03	1,1,ac_cl_area,36,125
+ac_cl_area,35,133,0	warp	nov_aca04	1,1,ac_cl_area,148,16
+ac_cl_area,153,16,0	warp	nov_aca05	1,1,ac_cl_area,39,136
+ac_cl_area,30,155,0	warp	nov_aca06	1,1,ac_cl_area,182,116
+ac_cl_area,186,117,0	warp	nov_aca07	1,1,ac_cl_area,35,155
+ac_cl_area,35,176,0	warp	nov_aca08	1,1,ac_cl_area,148,56
+ac_cl_area,153,56,0	warp	nov_aca09	1,1,ac_cl_area,40,176
+ac_cl_area,30,185,0	warp	nov_aca10	1,1,ac_cl_area,67,74
+ac_cl_area,71,74,0	warp	nov_aca11	1,1,ac_cl_area,35,184

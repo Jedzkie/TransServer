@@ -742,6 +742,8 @@ typedef enum sc_type {
 	SC_MTF_MSP,
 	SC_MTF_PUMPKIN,
 	SC_MTF_HITFLEE,
+	
+	SC_MOVHASTE_INFINITY2,
 
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 } sc_type;
@@ -1568,6 +1570,7 @@ enum si_type {
 	
 	SI_EQUIP_ARROW_ICON                        = 1001,
 	SI_SIT_ICON                                = 1002,
+	SI_MOVHASTE_INFINITY2                      = 1003,
 
 	SI_MAX,
 };

@@ -782,6 +782,7 @@ void initChangeTables(void) {
 	status->dbs->IconChangeTable[SC_ATTHASTE_INFINITY] = SI_ATTHASTE_INFINITY;
 	status->dbs->IconChangeTable[SC_MOVHASTE_HORSE] = SI_MOVHASTE_HORSE;
 	status->dbs->IconChangeTable[SC_MOVHASTE_INFINITY] = SI_MOVHASTE_INFINITY;
+	status->dbs->IconChangeTable[SC_MOVHASTE_INFINITY2] = SI_MOVHASTE_INFINITY2;
 	status->dbs->IconChangeTable[SC_CHASEWALK2] = SI_INCSTR;
 	status->dbs->IconChangeTable[SC_MIRACLE] = SI_SOULLINK;
 	status->dbs->IconChangeTable[SC_CLAIRVOYANCE] = SI_CLAIRVOYANCE;
@@ -925,6 +926,7 @@ void initChangeTables(void) {
 	status->dbs->ChangeFlagTable[SC_ATTHASTE_INFINITY] = SCB_ASPD;
 	status->dbs->ChangeFlagTable[SC_MOVHASTE_HORSE] = SCB_SPEED;
 	status->dbs->ChangeFlagTable[SC_MOVHASTE_INFINITY] = SCB_SPEED;
+	status->dbs->ChangeFlagTable[SC_MOVHASTE_INFINITY2] = SCB_SPEED;
 	status->dbs->ChangeFlagTable[SC_PLUSATTACKPOWER] = SCB_BATK;
 	status->dbs->ChangeFlagTable[SC_PLUSMAGICPOWER] = SCB_MATK;
 	status->dbs->ChangeFlagTable[SC_INCALLSTATUS] |= SCB_STR|SCB_AGI|SCB_VIT|SCB_INT|SCB_DEX|SCB_LUK;
@@ -5296,6 +5298,8 @@ unsigned short status_calc_speed(struct block_list *bl, struct status_change *sc
 			int val = 0;
 
 			if( sc->data[SC_MOVHASTE_INFINITY] ) //FIXME: used both by NPC_AGIUP and Speed Potion script
+				val = max( val, 50 );
+			if( sc->data[SC_MOVHASTE_INFINITY2] )
 				val = max( val, 50 );
 			if( sc->data[SC_INC_AGI] )
 				val = max( val, 25 );
